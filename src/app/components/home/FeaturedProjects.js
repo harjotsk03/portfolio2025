@@ -1,9 +1,12 @@
+"use client";
 import Image from "next/image";
 import EmberOpsAIMockup from "../../assets/EmberOpsAIMockup.png";
 import StudySpotrMockup from "../../assets/StudySpotrMockup.png";
 import { ArrowUpRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function FeaturedProjects() {
+  const router = useRouter();
   const projects = [
     {
       id: 1,
@@ -64,7 +67,10 @@ export default function FeaturedProjects() {
           </button>
         ))}
       </div>
-      <button className="rounded-lg lg:ml-auto hover:cursor-pointer mt-10 bg-black text-white manrope-regular w-max px-3.5 py-2 text-xs lg:text-sm lg:px-5 lg:py-2 group">
+      <button
+        onClick={() => router.push("/projects")}
+        className="rounded-lg lg:ml-auto hover:cursor-pointer mt-10 bg-black text-white manrope-regular w-max px-3.5 py-2 text-xs lg:text-sm lg:px-5 lg:py-2 group"
+      >
         <div className="inline-flex items-center">
           View All Projects
           <span className="ml-2 transform transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">

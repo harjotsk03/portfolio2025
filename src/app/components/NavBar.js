@@ -1,16 +1,26 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import Logo from "../assets/logo.png";
+import { useRouter } from "next/navigation";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
+  const navItems = [
+    { label: "Projects", href: "/projects" },
+    { label: "Resume", href: "/resume" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ];
 
   return (
     <div className="fixed top-0 flex flex-row justify-between px-6 md:px-16 border-b border-stone-200 items-center left-0 w-full h-20 bg-white z-50">
-      <button className="manrope-light hover:cursor-pointer group">
+      <Link href="/" className="manrope-light hover:cursor-pointer group">
         <Image
           src={Logo}
           alt="Logo"
@@ -18,16 +28,24 @@ export default function NavBar() {
           width={28}
           height={28}
         />
-      </button>
+      </Link>
 
       {/* Desktop Links */}
       <div className="hidden md:flex flex-row gap-10">
-        {["Projects", "Resume", "About", "Contact"].map((item) => (
+        {navItems.map((item) => (
           <button
-            key={item}
+            key={item.href}
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                duration: 800,
+                behavior: "smooth",
+              });
+              router.push(item.href);
+            }}
             className="hover:scale-105 text-sm hover:cursor-pointer hover:text-orange-500 duration-300 border-b border-transparent hover:border-orange-500 ease-in-out transition-all manrope-regular"
           >
-            {item}
+            {item.label}
           </button>
         ))}
       </div>
@@ -68,14 +86,15 @@ export default function NavBar() {
               </div>
 
               <div className="flex flex-col gap-6">
-                {["Projects", "Resume", "About", "Contact"].map((item) => (
-                  <button
-                    key={item}
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
                     onClick={() => setIsOpen(false)}
                     className="text-lg text-left hover:text-orange-500 transition-colors manrope-regular"
                   >
-                    {item}
-                  </button>
+                    {item.label}
+                  </Link>
                 ))}
               </div>
             </motion.div>
