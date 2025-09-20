@@ -20,12 +20,12 @@ export default function Footer() {
 
         {/* Right section - Links and contact */}
         <div className="flex flex-col gap-8">
-<SocialMedia />
+          <SocialMedia />
 
           {/* Quick links */}
           <div className="flex flex-col gap-3">
             <a
-              href="#about"
+              href="/about"
               className="group text-stone-400 hover:text-white transition-colors duration-300 text-sm manrope-regular flex items-center gap-1"
             >
               About
@@ -35,17 +35,17 @@ export default function Footer() {
               />
             </a>
             <a
-              href="#work"
+              href="/resume"
               className="group text-stone-400 hover:text-white transition-colors duration-300 text-sm manrope-regular flex items-center gap-1"
             >
-              Work
+              Resume
               <ArrowUpRight
                 size={12}
                 className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               />
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="group text-stone-400 hover:text-white transition-colors duration-300 text-sm manrope-regular flex items-center gap-1"
             >
               Contact

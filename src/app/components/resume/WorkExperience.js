@@ -105,14 +105,6 @@ export default function WorkExperience() {
         ))}
       </div>
 
-      <button className="rounded-lg lg:ml-auto hover:cursor-pointer mt-10 bg-black text-white manrope-regular w-max px-3.5 py-2 text-xs lg:text-sm lg:px-5 lg:py-2 group">
-        <div className="inline-flex items-center">
-          View All Experience
-          <span className="ml-2 transform transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-            <ArrowUpRight size={15} />
-          </span>
-        </div>
-      </button>
     </section>
   );
 }

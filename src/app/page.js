@@ -1,3 +1,4 @@
+import ContactForm from "./components/contact/ContactForm";
 import Footer from "./components/Footer";
 import FeaturedProjects from "./components/home/FeaturedProjects";
 import Hero from "./components/home/Hero";
@@ -13,4 +14,3 @@ export default function Home() {
     </div>
   );
 }
-
