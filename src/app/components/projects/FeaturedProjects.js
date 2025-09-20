@@ -14,8 +14,10 @@ import gardensimulator from "../../assets/gardensimulator.png";
 import foodvisionai from "../../assets/foodvisionai.png";
 import bintheredumpedthat from "../../assets/bintheredumpedthat.png";
 import footballwizard from "../../assets/footballwizard.png";
+import { useRouter } from "next/navigation";
 
 export default function FeaturedProjects() {
+  const router = useRouter();
   const projects = [
     {
       id: 1,
@@ -23,7 +25,7 @@ export default function FeaturedProjects() {
       description:
         "Full stack application to help students find study spots. Used by over 100 students Canada wide.",
       image: StudySpotrMockup,
-      link: "https://www.studyspotr.com",
+      link: "/casestudies/studyspotr",
       tech: [
         "Next.js",
         "Tailwind",
@@ -42,7 +44,7 @@ export default function FeaturedProjects() {
       description:
         "App for tracking and managing waste disposal and recycling for households.",
       image: bintheredumpedthat,
-      link: "#",
+      link: "/casestudies/binthere",
       tech: [
         "React",
         "MongoDB",
@@ -150,7 +152,6 @@ export default function FeaturedProjects() {
     },
   ];
 
-
   const languageSet = new Set([
     "Java",
     "Python",
@@ -217,29 +218,27 @@ export default function FeaturedProjects() {
     setSelectedTypes([]);
   };
 
-useEffect(() => {
-  if (filterOpen) {
-    // Scroll to top
+  useEffect(() => {
+    if (filterOpen) {
+      // Scroll to top
 
-    window.scrollTo({
-      top: 0,
-      duration: 800,
-      behavior: "smooth",
-    });
+      window.scrollTo({
+        top: 0,
+        duration: 800,
+        behavior: "smooth",
+      });
 
-    // Lock body scroll
-    document.body.style.overflow = "hidden";
-  } else {
-    // Unlock body scroll
-    document.body.style.overflow = "auto";
-  }
+      // Lock body scroll
+      document.body.style.overflow = "hidden";
+    } else {
+      // Unlock body scroll
+      document.body.style.overflow = "auto";
+    }
 
-  return () => {
-    document.body.style.overflow = "auto"; // cleanup
-  };
-}, [filterOpen]);
-
-
+    return () => {
+      document.body.style.overflow = "auto"; // cleanup
+    };
+  }, [filterOpen]);
 
   return (
     <div className="bg-white w-full h-max flex flex-col px-8 lg:px-28 py-6">
@@ -384,9 +383,10 @@ useEffect(() => {
               key={project.id}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
+              onClick={() => router.push(project.link)}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="overflow-hidden group hover:cursor-default items-start text-left flex flex-col"
+              className="overflow-hidden group hover:cursor-pointer items-start text-left flex flex-col"
             >
               <div className="relative w-full rounded-2xl overflow-hidden h-80 lg:h-96">
                 <Image
@@ -419,12 +419,12 @@ useEffect(() => {
                   ))}
                 </div>
 
-                {/* <div className="transition-opacity duration-300 ease-in-out inline-flex mt-4 items-center text-xs lg:text-sm text-black manrope-regular">
+                <div className="transition-opacity duration-300 ease-in-out inline-flex mt-4 items-center text-xs lg:text-sm text-black manrope-regular">
                   Read case study
                   <span className="transform transition-transform duration-500 ease-out delay-300 group-hover:translate-x-2 ml-1">
                     →
                   </span>
-                </div> */}
+                </div>
               </div>
             </motion.button>
           ))}

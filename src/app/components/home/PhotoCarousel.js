@@ -3,20 +3,11 @@ import Image from "next/image";
 import HeroOne from "../../assets/HeroOne.webp";
 import HeroTwo from "../../assets/HeroTwo.webp";
 import HeroThree from "../../assets/HeroThree.webp";
-import HeroFour from "../../assets/HeroFour.webp";
-import HeroFive from "../../assets/HeroFive.webp";
 import HeroSix from "../../assets/HeroSix.webp";
 import HeroSeven from "../../assets/HeroSeven.webp";
 import { useEffect, useRef } from "react";
 
-const images = [
-  HeroOne,
-  HeroTwo,
-  HeroThree,
-  HeroFour,
-  HeroSix,
-  HeroSeven,
-];
+const images = [HeroOne, HeroTwo, HeroThree, HeroSix, HeroSeven];
 
 export default function PhotoCarousel() {
   const scrollRef = useRef(null);
