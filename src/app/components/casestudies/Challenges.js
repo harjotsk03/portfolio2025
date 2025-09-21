@@ -1,3 +1,19 @@
+function highlightText(text) {
+  // Split text into parts: normal text and words wrapped in * *
+  const parts = text.split(/(\*[^*]+\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("*") && part.endsWith("*")) {
+      const clean = part.slice(1, -1); // remove the asterisks
+      return (
+        <span key={i} className="text-orange-500">
+          {clean}
+        </span>
+      );
+    }
+    return part;
+  });
+}
+
 export default function Challenges({ items = [] }) {
   return (
     <div className="w-full bg-white flex flex-col px-6 lg:px-72 mx-auto py-20">
@@ -16,13 +32,13 @@ export default function Challenges({ items = [] }) {
                 Challenge {i + 1}
               </h3>
               <p className="text-base text-stone-700 manrope-regular mb-4">
-                {item.challenge}
+                {highlightText(item.challenge)}
               </p>
               <h4 className="text-sm uppercase tracking-wide text-stone-400 manrope-medium mb-2">
                 Solution
               </h4>
               <p className="text-base text-stone-700 manrope-regular">
-                {item.solution}
+                {highlightText(item.solution)}
               </p>
             </div>
           ))

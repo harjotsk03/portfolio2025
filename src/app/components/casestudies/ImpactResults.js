@@ -1,3 +1,19 @@
+function highlightText(text) {
+  // Split text into parts: normal text and words wrapped in * *
+  const parts = text.split(/(\*[^*]+\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("*") && part.endsWith("*")) {
+      const clean = part.slice(1, -1); // remove the asterisks
+      return (
+        <span key={i} className="text-orange-500">
+          {clean}
+        </span>
+      );
+    }
+    return part;
+  });
+}
+
 export default function ImpactResults({ items = [] }) {
   return (
     <div className="w-full bg-stone-50 flex flex-col px-6 lg:px-72 mx-auto py-20">
@@ -13,10 +29,10 @@ export default function ImpactResults({ items = [] }) {
               className="bg-white border border-stone-200 rounded-xl p-6 transition-shadow duration-300"
             >
               <h3 className="text-lg manrope-medium text-black mb-2">
-                {item.title}
+                {highlightText(item.title)}
               </h3>
               <p className="text-base text-stone-700 manrope-regular">
-                {item.description}
+                {highlightText(item.description)}
               </p>
             </div>
           ))
