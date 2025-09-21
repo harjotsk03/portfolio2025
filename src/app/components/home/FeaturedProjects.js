@@ -14,7 +14,7 @@ export default function FeaturedProjects() {
       description:
         "Build a full stack web application to help students find study spots on, around, and off campus. Used by over 100 students Canada wide.",
       image: StudySpotrMockup,
-      link: "https://www.studyspotr.com",
+      link: "/casestudies/studyspotr",
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ export default function FeaturedProjects() {
       description:
         "Designing a mobile app to connect food enthusiasts through shared dining experiences, from concept to prototype.",
       image: EmberOpsAIMockup,
-      link: "#",
+      link: "/casestudies/openaiintegrationzohocrm",
     },
   ];
   return (
@@ -38,6 +38,7 @@ export default function FeaturedProjects() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
         {projects.map((project) => (
           <button
+            onClick={() => router.push(project.link)}
             key={project.id}
             className="overflow-hidden group hover:cursor-pointer items-start text-left flex flex-col"
           >

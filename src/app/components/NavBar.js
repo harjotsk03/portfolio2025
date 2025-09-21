@@ -5,11 +5,12 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import Logo from "../assets/logo.png";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   const navItems = [
     { label: "Projects", href: "/projects" },
@@ -32,22 +33,26 @@ export default function NavBar() {
 
       {/* Desktop Links */}
       <div className="hidden md:flex flex-row gap-10">
-        {navItems.map((item) => (
-          <button
-            key={item.href}
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                duration: 800,
-                behavior: "smooth",
-              });
-              router.push(item.href);
-            }}
-            className="hover:scale-105 text-sm hover:cursor-pointer hover:text-orange-500 duration-300 border-b border-transparent hover:border-orange-500 ease-in-out transition-all manrope-regular"
-          >
-            {item.label}
-          </button>
-        ))}
+        {navItems.map((item) => {
+          const isActive = pathname.includes(item.href);
+          return (
+            <button
+              key={item.href}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                router.push(item.href);
+              }}
+              className={`text-sm manrope-regular transition-all duration-300 ease-in-out border-b 
+                ${
+                  isActive
+                    ? "text-orange-500 border-orange-500"
+                    : "text-black border-transparent hover:text-orange-500 hover:border-orange-500"
+                }`}
+            >
+              {item.label}
+            </button>
+          );
+        })}
       </div>
 
       {/* Mobile Hamburger */}
@@ -61,7 +66,6 @@ export default function NavBar() {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Dark Background */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -70,7 +74,6 @@ export default function NavBar() {
               onClick={() => setIsOpen(false)}
             />
 
-            {/* Slide-in Menu */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -86,16 +89,23 @@ export default function NavBar() {
               </div>
 
               <div className="flex flex-col gap-6">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg text-left hover:text-orange-500 transition-colors manrope-regular"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                {navItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={`text-lg manrope-regular transition-colors ${
+                        isActive
+                          ? "text-orange-500"
+                          : "text-black hover:text-orange-500"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </div>
             </motion.div>
           </>

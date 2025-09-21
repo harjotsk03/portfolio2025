@@ -6,6 +6,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FiFilter } from "react-icons/fi";
 import { X } from "lucide-react";
 
+import sfurobotsoccermockup from "../../assets/sfurobotsoccermockup.png";
 import EmberOpsAIMockup from "../../assets/EmberOpsAIMockup.png";
 import StudySpotrMockup from "../../assets/StudySpotrMockup.png";
 import woggledashboard from "../../assets/woggledashboard.png";
@@ -25,7 +26,7 @@ export default function FeaturedProjects() {
       description:
         "Full stack application to help students find study spots. Used by over 100 students Canada wide.",
       image: StudySpotrMockup,
-      link: "/casestudies/studyspotr",
+      link: "/projects/studyspotr",
       tech: [
         "Next.js",
         "Tailwind",
@@ -44,7 +45,7 @@ export default function FeaturedProjects() {
       description:
         "App for tracking and managing waste disposal and recycling for households.",
       image: bintheredumpedthat,
-      link: "/casestudies/binthere",
+      link: "/projects/binthere",
       tech: [
         "React",
         "MongoDB",
@@ -62,7 +63,7 @@ export default function FeaturedProjects() {
       description:
         "Integrating OpenAI into a CRM system to automate workflows and improve user productivity.",
       image: EmberOpsAIMockup,
-      link: "#",
+      link: "/projects/openaiintegrationzohocrm",
       tech: [
         "Zoho CRM",
         "Java",
@@ -76,13 +77,13 @@ export default function FeaturedProjects() {
     },
     {
       id: 4,
-      title: "Garden Simulator",
+      title: "SFU Robot Soccer Website",
       description:
-        "Built a Garden Simulation game using Java to learn game design, development, object-oriented programming, software patterns, and more.",
-      image: gardensimulator,
-      link: "#",
-      tech: ["Java"],
-      type: "Course Work",
+        "Redesigned and developed SFU RS website and maintained throughout school year to post new open roles.",
+      image: sfurobotsoccermockup,
+      link: "/projects/sfurobotsoccerwebsite",
+      tech: ["Next.js", "Tailwind", "JavaScript", "Google Firebase"],
+      type: "University Club",
     },
     {
       id: 5,
@@ -90,17 +91,34 @@ export default function FeaturedProjects() {
       description:
         "Designed and developed a full stack application to help Woggle Consulting with client management and form log in management.",
       image: woggledashboard,
-      link: "#",
+      link: "/projects/customclientportalwoggle",
       tech: ["React", "Tailwind", "Node.js", "Firebase", "JavaScript"],
       type: "Internship",
     },
     {
       id: 6,
+      title: "Food Vision AI",
+      description:
+        "AI-powered app to recognize food items from images and provide nutritional insights.",
+      image: foodvisionai,
+      link: "/projects/foodvisionai",
+      tech: [
+        "React Native",
+        "Expo",
+        "Python",
+        "TensorFlow",
+        "OpenAI API",
+        "JavaScript",
+      ],
+      type: "Course Work",
+    },
+    {
+      id: 7,
       title: "Pharmabotics",
       description:
         "A mobile app connecting health enthusiasts to track their supplement intake and health metrics.",
       image: pharmabotics,
-      link: "#",
+      link: "/projects/pharmabotics",
       tech: [
         "React",
         "Tailwind",
@@ -113,30 +131,25 @@ export default function FeaturedProjects() {
       ],
       type: "Course Work",
     },
-    {
-      id: 7,
-      title: "Food Vision AI",
-      description:
-        "AI-powered app to recognize food items from images and provide nutritional insights.",
-      image: foodvisionai,
-      link: "#",
-      tech: [
-        "React Native",
-        "Expo",
-        "Python",
-        "TensorFlow",
-        "OpenAI API",
-        "JavaScript",
-      ],
-      type: "Course Work",
-    },
+
     {
       id: 8,
+      title: "Garden Simulator",
+      description:
+        "Built a Garden Simulation game using Java to learn game design, development, object-oriented programming, software patterns, and more.",
+      image: gardensimulator,
+      link: "/projects/gardensimulator",
+      tech: ["Java"],
+      type: "Course Work",
+    },
+
+    {
+      id: 9,
       title: "Football Wizard AI",
       description:
         "App for tracking and managing waste disposal and recycling for households.",
       image: footballwizard,
-      link: "#",
+      link: "/projects/footballwizardai",
       tech: [
         "React",
         "Tailwind",
