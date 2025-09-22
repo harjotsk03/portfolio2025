@@ -25,7 +25,7 @@ export default function Hero({
   const router = useRouter();
 
   return (
-    <div className="w-full bg-white flex flex-col px-6 lg:px-72 mx-auto py-20 2xl:py-28">
+    <div className="w-full bg-white flex flex-col px-6 lg:px-72 mx-auto py-20 lg:py-24 2xl:py-28">
       <div className="flex flex-row justify-between items-end mb-12">
         <div className="w-full">
           <button
